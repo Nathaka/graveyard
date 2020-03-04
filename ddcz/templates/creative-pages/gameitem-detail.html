@@ -1,0 +1,62 @@
+{% extends 'public.html' %}
+{% load html %}
+{% block content %}
+<div id="page-article-detail">
+    <h1 class="page-heading">{{ heading }}</h1>
+    <article>
+        <header>
+            <h2>{{ article.jmeno }}</h2>
+            <!-- TODO
+            <p>Příprava pro tisk</p>
+            -->
+        </header>
+        <div class="content table-like">
+            {% if article.skupina %}
+                <p><span class="label">Skupina:</span> <span class="value">{{ article.skupina }}</span></p>
+            {% endif %}
+            {% if article.uc %}
+                <p><span class="label">Síla zbraně:</span> <span class="value">{{ article.uc }}</span></p>
+            {% endif %}
+            {% if article.kz %}
+                <p><span class="label">KZ / OZ:</span> <span class="value">{{ article.kz }}</span></p>
+            {% endif %}
+            {% if article.delka %}
+                <p><span class="label">Délka:</span> <span class="value">{{ article.delka }}</span></p>
+            {% endif %}
+            {% if article.cena %}
+                <p><span class="label">Cena:</span> <span class="value">{{ article.cena }}</span></p>
+            {% endif %}
+            {% if article.malydostrel %}
+                <p><span class="label">Malý dostřel:</span> <span class="value">{{ article.malydostrel }}</span></p>
+            {% endif %}
+            {% if article.strednidostrel %}
+                <p><span class="label">Střední dostřel:</span> <span class="value">{{ article.strednidostrel }}</span></p>
+            {% endif %}
+            {% if article.velkydostrel %}
+                <p><span class="label">Velý dostřel:</span> <span class="value">{{ article.velkydostrel }}</span></p>
+            {% endif %}
+            {% if article.sfera %}
+                <p><span class="label">Sféra:</span> <span class="value">{{ article.sfera }}</span></p>
+            {% endif %}
+            {% if article.vaha %}
+                <p><span class="label">Váha:</span> <span class="value">{{ article.vaha }}</span></p>
+            {% endif %}
+            <div class="description-row"><div class="label">Popis:</div> <div class="value">{{ article.popis|render_html|safe }}</div></div>
+        </div>
+        <footer class="table-like">
+            <p><span class="label">Autor:</span> <span class="value">                        {% if article.author_profile %}
+                <a
+                    href="{% url 'ddcz:user-detail' user_profile_id=article.author_profile.id nick_slug=article.author_profile.slug %}"
+                    class="author"
+                    rel="author">{{ article.autor }}</a>
+            {% else %}
+                Neznámý
+            {% endif %}
+            </span></p>
+            <p><span class="label">Přidáno:</span> <time class="value" datetime={{ article.datum | date:"r"  }}>{{ article.datum | date:"j. n. Y v H.i" }}</time></p>
+            <p><span class="label">Hlasovalo:</span> <span class="value">{{ article.pocet_hlasujicich }}</span></p>
+        </footer>
+    </article>
+
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-.. _dictionary:
+reati.. _dictionary:
 
 ###########
 Dictionary
@@ -36,6 +36,7 @@ In this context, Crative Pages correspond to sections of the site where content 
 * Bestiář (= Monsters)
 * Dovednosti (= Skills)
 * Hřbitov (= Graveyard)
+* Předměty (= GameItems, to distinguish from generic use of Items)
 * Dlouhé příspěvky / Běžné příspěvky = Common Articles (not used publicly, but powers a lot of internal engine)
 
     * Články a Eseje = Articles and Essays
