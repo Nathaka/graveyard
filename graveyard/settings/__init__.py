@@ -18,3 +18,5 @@ elif runtime == "local":
         pass
 else:
     raise ValueError("ENVIRONMENT (if set) should be set to 'production' or 'local'")
+
+print(INTERNAL_IPS)
