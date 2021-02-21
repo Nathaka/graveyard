@@ -15,6 +15,8 @@ class News(models.Model):
     autmail = MisencodedTextField()
     text = MisencodedTextField()
 
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, blank=True, null=True)
+
     class Meta:
         db_table = 'aktuality'
         verbose_name = 'Aktuality'
